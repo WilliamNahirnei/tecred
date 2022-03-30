@@ -19,6 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('category/enable/{category}',[CategoryController::class, 'enable']);
 Route::delete('category/disable/{category}',[CategoryController::class, 'disable']);
 Route::apiResource('category', CategoryController::class, ['except' => ['destroy']]);
 

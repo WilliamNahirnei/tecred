@@ -56,4 +56,12 @@ class CategoryRepository
         return $category->update($arrayCategory);
     }
 
+    /**
+     * @return bool
+     */
+    public static function enable($arrayCategory, $category): bool
+    {
+        return $category->update($arrayCategory);
+    }
+
 }

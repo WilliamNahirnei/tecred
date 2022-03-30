@@ -60,6 +60,16 @@ class CategoryRequest extends CustomRulesRequest
     /**
      * @return Array
      */
+    public function validateToenable(): Array
+    {
+        return [
+            'idCategory' => 'required',
+        ];
+    }
+
+    /**
+     * @return Array
+     */
     public function messages(): Array
     {
         return [

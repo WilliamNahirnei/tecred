@@ -60,4 +60,12 @@ trait CategoryTrait
     {
         return ['statusCategory' => 0];
     }
+
+    /**
+     * this method prepare data to enable category
+     */
+    public function prepareEnable()
+    {
+        return ['statusCategory' => 1];
+    }
 }

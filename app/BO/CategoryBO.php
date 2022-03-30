@@ -81,4 +81,16 @@ class CategoryBO
         $preparedData = $this->prepare();
         return CategoryRepository::disable($preparedData, $category);
     }
+
+    /**
+     * enable specific category.
+     *
+     * @param \App\Models\Category  $category
+     * @return bool
+     */
+    public function enable($category): bool
+    {
+        $preparedData = $this->prepare();
+        return CategoryRepository::enable($preparedData, $category);
+    }
 }

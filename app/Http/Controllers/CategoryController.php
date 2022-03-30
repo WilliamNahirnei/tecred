@@ -92,4 +92,18 @@ class CategoryController extends Controller
 
         return response()->json("Category Disabled", 204);
     }
+
+    /**
+     * enable specific category.
+     *
+     * @param  \App\Models\Category  $category
+     * @return \Illuminate\Http\Response
+     */
+    public function enable(Category $category)
+    {
+        $categoryBO = new CategoryBO();
+        $categoryBO->enable($category);
+
+        return response()->json("Category Enable", 204);
+    }
 }
