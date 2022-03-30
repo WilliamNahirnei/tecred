@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::delete('category/disable/{category}',[CategoryController::class, 'disable']);
+Route::apiResource('survey', CategoryController::class, ['except' => ['destroy']]);
+
