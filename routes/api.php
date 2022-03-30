@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,5 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::delete('category/disable/{category}',[CategoryController::class, 'disable']);
-Route::apiResource('survey', CategoryController::class, ['except' => ['destroy']]);
+Route::apiResource('category', CategoryController::class, ['except' => ['destroy']]);
 

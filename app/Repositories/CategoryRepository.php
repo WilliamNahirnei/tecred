@@ -29,7 +29,7 @@ class CategoryRepository
     public static function findActiveCategories($columns = ['id','name']): Collection
     {
         return Category::active()
-                            ->get($columns);
+            ->get($columns);
     }
 
     /**

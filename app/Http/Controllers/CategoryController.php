@@ -80,7 +80,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * disable specific category.
      *
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response

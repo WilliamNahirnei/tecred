@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\BO\Traits\CategoryTrait;
 use App\Models\Category;
+use Illuminate\Http\Request;
 
 class CategoryBO
 {
@@ -47,10 +48,10 @@ class CategoryBO
     /**
      * Store a new resource in storage
      *
-     * @param \App\Http\Requests\CategoryRequest  $request
+     * @param Request  $request
      * @return Category
      */
-    public function store($request): Category
+    public function store(Request $request): Category
     {
         $preparedData = $this->prepare($request);
         return CategoryRepository::store($preparedData);
@@ -65,11 +66,12 @@ class CategoryBO
      */
     public function update($request, $category): bool
     {
-        return CategoryRepository::update($this->prepare($request, $category), $category);
+        $preparedData = $this->prepare($request);
+        return CategoryRepository::update($preparedData, $category);
     }
 
     /**
-     * Delete an specific resource from storage.
+     * disable specific category.
      *
      * @param \App\Models\Category  $category
      * @return bool

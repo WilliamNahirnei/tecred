@@ -2,7 +2,6 @@
 
 namespace App\BO\Traits;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\UserHasSystemRequest;
 
 use App\Resources\Traits\PrepareTrait;
@@ -19,10 +18,10 @@ trait CategoryTrait
      * Method responsible for receiving data and preparing them to call the desired method
      *   its name must be the junction of the word prepare with the name of the method that will call it
      *
-     * @param Request $params
+     * @param array $request
      * @return array
      */
-    public function prepareStore(Request $request)
+    public function prepareStore(array $request)
     {
         $requestObject              = $request['request'];
         $classObject                = $request['object'];
@@ -39,17 +38,17 @@ trait CategoryTrait
      * Method responsible for receiving data and preparing them to call the desired method
      *   its name must be the junction of the word prepare with the name of the method that will call it
      *
-     * @param Request $params
+     * @param array $params
      * @return array
      */
-    public function prepareUpdate(Request $request)
+    public function prepareUpdate(array $request)
     {
         $requestObject              = $request['request'];
         $classObject                = $request['object'];
 
-        $returnArray = [];
-        // $returnArray['users_id'] = $requestObject->users_id ?? $classObject->users_id;
-        // $returnArray['name']     = $requestObject->name ?? $classObject->name;
+        $returnArray = [
+            'nameCategory'   => $requestObject->nameCategory ?? $classObject->nameCategory,
+        ];
 
         return $returnArray;
     }
