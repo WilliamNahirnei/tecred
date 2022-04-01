@@ -65,7 +65,8 @@ class ProductBO
      */
     public function update($request, $product): bool
     {
-        return ProductRepository::update($this->prepare($request, $product), $product);
+        $preparedData = $this->prepare($request, $product);
+        return ProductRepository::update($preparedData, $product);
     }
 
     /**

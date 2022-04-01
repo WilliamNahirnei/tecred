@@ -66,7 +66,7 @@ class CategoryBO
      */
     public function update($request, $category): bool
     {
-        $preparedData = $this->prepare($request);
+        $preparedData = $this->prepare($request, $category);
         return CategoryRepository::update($preparedData, $category);
     }
 

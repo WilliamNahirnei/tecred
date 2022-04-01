@@ -44,9 +44,9 @@ class ProductRequest extends CustomRulesRequest
     public function validateToUpdate(): Array
     {
         return [
-            'nameProduct' => 'nullable|min:3|max:255',
-            'quantityProduct' => 'nullable|integer|min:0',
-            'idCategory' => 'nullabe|exists:category,idCategory'
+            'nameProduct' => 'min:3|max:255',
+            'quantityProduct' => 'integer|min:0',
+            'idCategory' => 'exists:category,idCategory'
         ];
     }
 
