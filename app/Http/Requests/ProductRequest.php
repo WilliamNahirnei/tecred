@@ -32,9 +32,10 @@ class ProductRequest extends CustomRulesRequest
     public function validateToStore(): Array
     {
         return [
-            // 'name' => 'required|max:60',
+            'nameProduct' => 'required|min:3|max:255',
+            'quantityProduct' => 'required|integer|min:0',
+            'idCategory' => 'required|exists:category,idCategory'
         ];
-
     }
 
     /**
@@ -43,7 +44,9 @@ class ProductRequest extends CustomRulesRequest
     public function validateToUpdate(): Array
     {
         return [
-            // 'name' => 'max:60',
+            'nameProduct' => 'nullable|min:3|max:255',
+            'quantityProduct' => 'nullable|integer|min:0',
+            'idCategory' => 'nullabe|exists:category,idCategory'
         ];
     }
 

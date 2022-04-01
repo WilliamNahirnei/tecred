@@ -52,7 +52,8 @@ class ProductBO
      */
     public function store($request): Product
     {
-        return ProductRepository::store($this->prepare($request));
+        $preparedData = $this->prepare($request);
+        return ProductRepository::store($preparedData);
     }
 
     /**

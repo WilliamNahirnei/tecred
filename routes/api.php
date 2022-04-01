@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,4 @@ Route::post('category/enable/{category}',[CategoryController::class, 'enable']);
 Route::delete('category/disable/{category}',[CategoryController::class, 'disable']);
 Route::apiResource('category', CategoryController::class, ['except' => ['destroy']]);
 
+Route::apiResource('product', ProductController::class, ['except' => ['destroy']]);

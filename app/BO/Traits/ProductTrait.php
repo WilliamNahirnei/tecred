@@ -27,9 +27,12 @@ trait ProductTrait
         $requestObject              = $params['request'];
         $classObject                = $params['object'];
 
-        $returnArray = [];
-        // $returnArray['users_id'] = $requestObject->id;
-        // $returnArray['name']     = $requestObject->name;
+        $returnArray = [
+            'nameProduct'     => $requestObject->nameProduct ?? $classObject->nameProduct,
+            'quantityProduct' => $requestObject->quantityProduct ?? $classObject->quantityProduct,
+            'statusProduct'   => 1,
+            'idCategory'      => $requestObject->quantityProduct ?? $classObject->quantityProduct
+        ];
 
         return array_filter($returnArray);
     }
@@ -46,9 +49,12 @@ trait ProductTrait
         $requestObject              = $params['request'];
         $classObject                = $params['object'];
 
-        $returnArray = [];
-        // $returnArray['users_id'] = $requestObject->users_id ?? $classObject->users_id;
-        // $returnArray['name']     = $requestObject->name ?? $classObject->name;
+        $returnArray = [
+            'nameProduct'     => $requestObject->nameProduct ?? $classObject->nameProduct,
+            'quantityProduct' => $requestObject->quantityProduct ?? $classObject->quantityProduct,
+            'statusProduct'   => 1,
+            'idCategory'      => $requestObject->quantityProduct ?? $classObject->quantityProduct
+        ];
 
         return $returnArray;
     }

@@ -20,6 +20,7 @@ class CreateTableProduct extends Migration
             $table->addColumn('tinyInteger', 'statusProduct', ['length' => 1]);
             $table->integer('idCategory');
             $table->foreign('idCategory')->references('idCategory')->on('category');
+            $table->timestamps();
         });
     }
 
@@ -30,6 +31,6 @@ class CreateTableProduct extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_product');
+        Schema::dropIfExists('product');
     }
 }
