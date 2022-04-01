@@ -32,9 +32,9 @@ class ProductRequest extends CustomRulesRequest
     public function validateToStore(): Array
     {
         return [
-            'nameProduct' => 'required|min:3|max:255',
+            'nameProduct'     => 'required|min:3|max:255',
             'quantityProduct' => 'required|integer|min:0',
-            'idCategory' => 'required|exists:category,idCategory'
+            'idCategory'      => 'required|exists:category,idCategory'
         ];
     }
 
@@ -44,19 +44,29 @@ class ProductRequest extends CustomRulesRequest
     public function validateToUpdate(): Array
     {
         return [
-            'nameProduct' => 'min:3|max:255',
+            'nameProduct'     => 'min:3|max:255',
             'quantityProduct' => 'integer|min:0',
-            'idCategory' => 'exists:category,idCategory'
+            'idCategory'      => 'exists:category,idCategory'
         ];
     }
 
     /**
      * @return Array
      */
-    public function validateToDestroy(): Array
+    public function validateToDisable(): Array
     {
         return [
-            // 'id' => 'required',
+            'idProduct' => 'required',
+        ];
+    }
+
+    /**
+     * @return Array
+     */
+    public function validateToenable(): Array
+    {
+        return [
+            'idProduct' => 'required',
         ];
     }
 
@@ -66,7 +76,14 @@ class ProductRequest extends CustomRulesRequest
     public function messages(): Array
     {
         return [
-            // 'id.required' => 'O id é obrigatório!',
+            'idProduct.required'   => 'id of product is required!',
+            'idCategory.required'  => 'id category is required',
+            'nameProduct.required' => 'name of product is required',
+            'nameProduct.min'      => 'name of product need 3 or more caracters',
+            'nameProduct.max'      => 'name of product not suport more 255 caracters',
+            'quantityProduct.required' => 'quantity product is required',
+            'quantityProduct.integer' => 'quantity product need integer value',
+            'quantityProduct.min' => 'quantity product need zero or positive value',
         ];
     }
 }

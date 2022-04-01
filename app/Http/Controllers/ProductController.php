@@ -80,16 +80,30 @@ class ProductController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * disable specific product.
      *
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function disable(Product $product)
     {
-        $productBO = new ProductBO();
-        $productBO->destroy($product);
+        $categoryBO = new ProductBO();
+        $categoryBO->disable($product);
 
-        return response()->json("DELETED", 204);
+        return response()->json("Category Disabled", 204);
+    }
+
+    /**
+     * enable specific product.
+     *
+     * @param  \App\Models\Product  $product
+     * @return \Illuminate\Http\Response
+     */
+    public function enable(Product $product)
+    {
+        $categoryBO = new ProductBO();
+        $categoryBO->enable($product);
+
+        return response()->json("Category Enable", 204);
     }
 }

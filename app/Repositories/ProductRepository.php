@@ -51,9 +51,17 @@ class ProductRepository
     /**
      * @return bool
      */
-    public static function destroy($product): bool
+    public static function disable($arrayProduct, $product): bool
     {
-        return $product->delete();
+        return $product->update($arrayProduct);
+    }
+
+    /**
+     * @return bool
+     */
+    public static function enable($arrayProduct, $product): bool
+    {
+        return $product->update($arrayProduct);
     }
 
 }

@@ -57,4 +57,20 @@ trait ProductTrait
 
         return $returnArray;
     }
+
+    /**
+     * this method prepare data to disable category
+     */
+    public function prepareDisable()
+    {
+        return ['statusProduct' => 0];
+    }
+
+    /**
+     * this method prepare data to enable category
+     */
+    public function prepareEnable()
+    {
+        return ['statusProduct' => 1];
+    }
 }

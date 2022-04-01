@@ -70,13 +70,26 @@ class ProductBO
     }
 
     /**
-     * Delete an specific resource from storage.
+     * disable specific product.
      *
      * @param \App\Models\Product  $product
      * @return bool
      */
-    public function destroy($product): bool
+    public function disable($product): bool
     {
-        return ProductRepository::destroy($product);
+        $preparedData = $this->prepare();
+        return ProductRepository::disable($preparedData, $product);
+    }
+
+    /**
+     * enable specific product.
+     *
+     * @param \App\Models\Product  $product
+     * @return bool
+     */
+    public function enable($product): bool
+    {
+        $preparedData = $this->prepare();
+        return ProductRepository::enable($preparedData, $product);
     }
 }

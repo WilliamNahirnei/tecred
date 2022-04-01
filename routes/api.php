@@ -24,6 +24,6 @@ Route::post('category/enable/{category}',[CategoryController::class, 'enable']);
 Route::delete('category/disable/{category}',[CategoryController::class, 'disable']);
 Route::apiResource('category', CategoryController::class, ['except' => ['destroy']]);
 
-Route::post('product/enable/{product}',[CategoryController::class, 'enable']);
-Route::delete('category/product/{product}',[CategoryController::class, 'disable']);
+Route::post('product/enable/{product}',[ProductController::class, 'enable']);
+Route::delete('product/disable/{product}',[ProductController::class, 'disable']);
 Route::apiResource('product', ProductController::class, ['except' => ['destroy']]);

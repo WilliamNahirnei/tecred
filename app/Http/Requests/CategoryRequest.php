@@ -43,7 +43,7 @@ class CategoryRequest extends CustomRulesRequest
     public function validateToUpdate(): Array
     {
         return [
-            // 'name' => 'max:60',
+            'nameCategory' => 'min:3|max:255',
         ];
     }
 
