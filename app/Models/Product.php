@@ -23,4 +23,9 @@ class Product extends Model
         "statusProduct",
         "idCategory"
     ];
+
+    public function Category()
+    {
+        return $this->hasOne(Category::class, 'idCategory');
+    }
 }

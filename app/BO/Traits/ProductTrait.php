@@ -52,7 +52,7 @@ trait ProductTrait
         $returnArray = [
             'nameProduct'     => $requestObject->nameProduct ?? $classObject->nameProduct,
             'quantityProduct' => $requestObject->quantityProduct ?? $classObject->quantityProduct,
-            'idCategory'      => $requestObject->quantityProduct ?? $classObject->quantityProduct
+            'idCategory'      => $requestObject->idCategory ?? $classObject->idCategory
         ];
 
         return $returnArray;

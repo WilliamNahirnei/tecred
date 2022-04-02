@@ -14,13 +14,13 @@ class CreateTableProduct extends Migration
     public function up()
     {
         Schema::create('product', function (Blueprint $table) {
-            $table->increments('idProduct')->unique();
+            $table->integer('idProduct')->autoIncrement()->unique();
             $table->string('nameProduct', 255);
             $table->integer('quantityProduct');
             $table->addColumn('tinyInteger', 'statusProduct', ['length' => 1]);
+            $table->timestamps();
             $table->integer('idCategory');
             $table->foreign('idCategory')->references('idCategory')->on('category');
-            $table->timestamps();
         });
     }
 
