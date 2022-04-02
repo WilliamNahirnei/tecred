@@ -31,7 +31,7 @@ trait ProductTrait
             'nameProduct'     => $requestObject->nameProduct ?? $classObject->nameProduct,
             'quantityProduct' => $requestObject->quantityProduct ?? $classObject->quantityProduct,
             'statusProduct'   => 1,
-            'idCategory'      => $requestObject->quantityProduct ?? $classObject->quantityProduct
+            'idCategory'      => $requestObject->idCategory ?? $classObject->idCategory
         ];
 
         return array_filter($returnArray);
