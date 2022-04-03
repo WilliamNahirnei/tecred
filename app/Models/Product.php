@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Category;
 
 class Product extends Model
 {
@@ -24,8 +25,8 @@ class Product extends Model
         "idCategory"
     ];
 
-    public function Category()
+    public function category()
     {
-        return $this->hasOne(Category::class, 'idCategory');
+        return $this->belongsTo('App\Models\Category', 'product.idCategory', 'category.idCategory');
     }
 }
