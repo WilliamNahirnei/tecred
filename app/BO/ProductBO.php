@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use App\BO\Traits\ProductTrait;
 use App\Models\Product;
+use App\Services\CSVService;
 
 class ProductBO
 {
@@ -91,5 +92,31 @@ class ProductBO
     {
         $preparedData = $this->prepare();
         return ProductRepository::enable($preparedData, $product);
+    }
+
+    /**
+     * Export report with active products data
+     */
+    public function exportCsvActiveProducts()
+    {
+        $columns = [];
+        $rows = [];
+        $productList = ProductRepository::getActiveProductListWithCategory();
+        dd($productList);
+        if ($productList->count() === 0) {
+            $rows[] = [
+                'Mensagem' => "Nenhum produto encontrado",
+            ];
+        } else {
+            $rows[] = [
+                ''               => ''
+            ];
+        }
+
+        $csvService = new CSVService('Relatório de produtos ativos');
+        $csvService->setColumns([
+            'Mês/ano',
+        ]);
+        return $csvService->generateFile($rows);
     }
 }
