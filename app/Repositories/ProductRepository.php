@@ -70,11 +70,16 @@ class ProductRepository
      */
     public static function getActiveProductListWithCategory() : Collection
     {
-        return Product::select(
-            ''
-        )
+        return Product::select([
+            'product.nameProduct as product',
+            'product.quantityProduct as quantity',
+            'category.nameCategory as category'
+        ])
         ->join('category', 'product.idCategory', '=', 'category.idCategory')
-        ->where('product.statusCategory', CustomModel::RECORD_STATUS_ACTIVE);
+        ->where('product.statusProduct', CustomModel::RECORD_STATUS_ACTIVE)
+        ->orderBy('category', 'ASC')
+        ->orderBy('product', 'ASC')
+        ->get();
     }
 
 }

@@ -102,20 +102,25 @@ class ProductBO
         $columns = [];
         $rows = [];
         $productList = ProductRepository::getActiveProductListWithCategory();
-        dd($productList);
         if ($productList->count() === 0) {
             $rows[] = [
                 'Mensagem' => "Nenhum produto encontrado",
             ];
         } else {
-            $rows[] = [
-                ''               => ''
-            ];
+            foreach ($productList as $product) {
+                $rows[] = [
+                    'Category' => $product->category,
+                    'Product'  => $product->product,
+                    'Quantity' => $product->quantity
+                ];
+            }
         }
 
         $csvService = new CSVService('Relatório de produtos ativos');
         $csvService->setColumns([
-            'Mês/ano',
+            'Categoria',
+            'Produto',
+            'Quantidade'
         ]);
         return $csvService->generateFile($rows);
     }
