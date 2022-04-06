@@ -27,9 +27,11 @@ trait UserTrait
         $requestObject              = $params['request'];
         $classObject                = $params['object'];
 
-        $returnArray = [];
-        // $returnArray['users_id'] = $requestObject->id;
-        // $returnArray['name']     = $requestObject->name;
+        $returnArray = [
+            'nameUser' => $requestObject->nameUser,
+            'email'     => $requestObject->email,
+            'password' => bcrypt($requestObject->password),
+        ];
 
         return array_filter($returnArray);
     }

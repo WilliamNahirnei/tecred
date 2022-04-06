@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,19 +18,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group([
+Route::post('auth/login', [AuthController::class, 'login'])->name('auth.login');
 
-    'middleware' => 'api',
-    'prefix' => 'auth'
+// Route::group([
 
-], function ($router) {
+//     'middleware' => 'api',
+//     'prefix' => 'auth'
 
-    Route::post('login', 'AuthController@login');
-    Route::post('logout', 'AuthController@logout');
-    Route::post('refresh', 'AuthController@refresh');
-    Route::post('me', 'AuthController@me');
+// ], function ($router) {
 
-});
+//     Route::post('login', 'AuthController@login');
+//     Route::post('logout', 'AuthController@logout');
+//     Route::post('refresh', 'AuthController@refresh');
+//     Route::post('me', 'AuthController@me');
+
+// });
+
+Route::apiResource('user', UserController::class, ['except' => ['destroy']]);
 
 Route::post('category/enable/{category}', [CategoryController::class, 'enable']);
 Route::delete('category/disable/{category}', [CategoryController::class, 'disable']);

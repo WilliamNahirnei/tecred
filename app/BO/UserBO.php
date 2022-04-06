@@ -52,7 +52,8 @@ class UserBO
      */
     public function store($request): User
     {
-        return UserRepository::store($this->prepare($request));
+        $preparedData = $this->prepare($request);
+        return UserRepository::store($preparedData);
     }
 
     /**
@@ -65,16 +66,5 @@ class UserBO
     public function update($request, $user): bool
     {
         return UserRepository::update($this->prepare($request, $user), $user);
-    }
-
-    /**
-     * Delete an specific resource from storage.
-     *
-     * @param \App\Models\User  $user
-     * @return bool
-     */
-    public function destroy($user): bool
-    {
-        return UserRepository::destroy($user);
     }
 }

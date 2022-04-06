@@ -52,16 +52,6 @@ class UserRequest extends CustomRulesRequest
     /**
      * @return Array
      */
-    public function validateToDestroy(): Array
-    {
-        return [
-            // 'id' => 'required',
-        ];
-    }
-
-    /**
-     * @return Array
-     */
     public function messages(): Array
     {
         return [

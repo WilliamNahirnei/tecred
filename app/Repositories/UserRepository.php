@@ -29,7 +29,7 @@ class UserRepository
     public static function findActiveUsers($columns = ['id','name']): Collection
     {
         return User::active()
-                            ->get($columns);
+        ->get($columns);
     }
 
     /**
@@ -46,14 +46,6 @@ class UserRepository
     public static function update($arrayUser, $user): bool
     {
         return $user->update($arrayUser);
-    }
-
-    /**
-     * @return bool
-     */
-    public static function destroy($user): bool
-    {
-        return $user->delete();
     }
 
 }
