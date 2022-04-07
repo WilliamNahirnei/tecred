@@ -24,15 +24,6 @@ class CategoryRepository
     }
 
     /**
-     * @return Collection
-     */
-    public static function findActiveCategories($columns = ['id','name']): Collection
-    {
-        return Category::active()
-            ->get($columns);
-    }
-
-    /**
      * @return Category
      */
     public static function store($arrayCategory): Category

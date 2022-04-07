@@ -73,10 +73,10 @@ class CategoryRequest extends CustomRulesRequest
     public function messages(): Array
     {
         return [
-            'idCategory.required' => 'id of category is required!',
+            'idCategory.required'   => 'id of category is required!',
             'nameCategory.required' => 'name of category is required',
-            'nameCategory.min' => 'name of category need 3 or more caracters',
-            'nameCategory.max' => 'name of category not suport more 255 caracters'
+            'nameCategory.min'      => 'name of category need 3 or more caracters',
+            'nameCategory.max'      => 'name of category not suport more 255 caracters'
         ];
     }
 }

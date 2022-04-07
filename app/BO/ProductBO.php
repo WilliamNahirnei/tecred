@@ -36,16 +36,6 @@ class ProductBO
     }
 
     /**
-    * Get only active resources
-    *
-    * @return Collection
-    */
-    public function findActiveProducts(): Collection
-    {
-        return ProductRepository::findActiveProducts();
-    }
-
-    /**
      * Store a new resource in storage
      *
      * @param \App\Http\Requests\ProductRequest  $request

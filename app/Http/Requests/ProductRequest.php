@@ -76,14 +76,14 @@ class ProductRequest extends CustomRulesRequest
     public function messages(): Array
     {
         return [
-            'idProduct.required'   => 'id of product is required!',
-            'idCategory.required'  => 'id category is required',
-            'nameProduct.required' => 'name of product is required',
-            'nameProduct.min'      => 'name of product need 3 or more caracters',
-            'nameProduct.max'      => 'name of product not suport more 255 caracters',
+            'idProduct.required'       => 'id of product is required!',
+            'idCategory.required'      => 'id category is required',
+            'nameProduct.required'     => 'name of product is required',
+            'nameProduct.min'          => 'name of product need 3 or more caracters',
+            'nameProduct.max'          => 'name of product not suport more 255 caracters',
             'quantityProduct.required' => 'quantity product is required',
-            'quantityProduct.integer' => 'quantity product need integer value',
-            'quantityProduct.min' => 'quantity product need zero or positive value',
+            'quantityProduct.integer'  => 'quantity product need integer value',
+            'quantityProduct.min'      => 'quantity product need zero or positive value',
         ];
     }
 }

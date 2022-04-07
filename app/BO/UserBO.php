@@ -35,16 +35,6 @@ class UserBO
     }
 
     /**
-    * Get only active resources
-    *
-    * @return Collection
-    */
-    public function findActiveUsers(): Collection
-    {
-        return UserRepository::findActiveUsers();
-    }
-
-    /**
      * Store a new resource in storage
      *
      * @param \App\Http\Requests\UserRequest  $request
@@ -65,6 +55,7 @@ class UserBO
      */
     public function update($request, $user): bool
     {
-        return UserRepository::update($this->prepare($request, $user), $user);
+        $preparedData = $this->prepare($request);
+        return UserRepository::update($preparedData, $user);
     }
 }

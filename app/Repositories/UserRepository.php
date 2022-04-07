@@ -23,14 +23,6 @@ class UserRepository
         return User::paginate();
     }
 
-    /**
-     * @return Collection
-     */
-    public static function findActiveUsers($columns = ['id','name']): Collection
-    {
-        return User::active()
-        ->get($columns);
-    }
 
     /**
      * @return User

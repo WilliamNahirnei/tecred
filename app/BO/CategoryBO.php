@@ -36,16 +36,6 @@ class CategoryBO
     }
 
     /**
-    * Get only active resources
-    *
-    * @return Collection
-    */
-    public function findActiveCategories(): Collection
-    {
-        return CategoryRepository::findActiveCategories();
-    }
-
-    /**
      * Store a new resource in storage
      *
      * @param Request  $request

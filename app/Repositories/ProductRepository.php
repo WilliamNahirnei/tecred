@@ -25,15 +25,6 @@ class ProductRepository
     }
 
     /**
-     * @return Collection
-     */
-    public static function findActiveProducts($columns = ['id','name']): Collection
-    {
-        return Product::active()
-            ->get($columns);
-    }
-
-    /**
      * @return Product
      */
     public static function store($arrayProduct): Product

@@ -19,17 +19,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('auth/login', [AuthController::class, 'login'])->name('auth.login');
-Route::post('auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
-Route::post('auth/refresh', [AuthController::class, 'refresh'])->name('auth.refresh');
-Route::post('auth/me', [AuthController::class, 'me'])->name('auth.me');
+Route::post('auth/logout', [AuthController::class, 'logout'])->name('auth.logout')->middleware('autenticateJWT');
+Route::post('auth/refresh', [AuthController::class, 'refresh'])->name('auth.refresh')->middleware('autenticateJWT');
 
-Route::apiResource('user', UserController::class, ['except' => ['destroy']]);
+Route::post('user', [UserController::class, 'store']);
+Route::apiResource('user', UserController::class, ['except' => ['destroy, store'], 'only' => ['index', 'show', 'update']])->middleware('autenticateJWT');
 
-Route::post('category/enable/{category}', [CategoryController::class, 'enable']);
-Route::delete('category/disable/{category}', [CategoryController::class, 'disable']);
-Route::apiResource('category', CategoryController::class, ['except' => ['destroy']]);
+Route::post('category/enable/{category}', [CategoryController::class, 'enable'])->middleware('autenticateJWT');
+Route::delete('category/disable/{category}', [CategoryController::class, 'disable'])->middleware('autenticateJWT');
+Route::apiResource('category', CategoryController::class, ['except' => ['destroy']])->middleware('autenticateJWT');
 
-Route::post('product/enable/{product}', [ProductController::class, 'enable']);
-Route::delete('product/disable/{product}', [ProductController::class, 'disable']);
-Route::get('product/report/csv/activeProducts', [ProductController::class, 'exportCsvActiveProducts']);
-Route::apiResource('product', ProductController::class, ['except' => ['destroy']]);
+Route::post('product/enable/{product}', [ProductController::class, 'enable'])->middleware('autenticateJWT');
+Route::delete('product/disable/{product}', [ProductController::class, 'disable'])->middleware('autenticateJWT');
+Route::get('product/report/csv/activeProducts', [ProductController::class, 'exportCsvActiveProducts'])->middleware('autenticateJWT');
+Route::apiResource('product', ProductController::class, ['except' => ['destroy']])->middleware('autenticateJWT');

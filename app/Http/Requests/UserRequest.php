@@ -33,7 +33,7 @@ class UserRequest extends CustomRulesRequest
     {
         return [
             'nameUser' => 'required|min:4|max:50',
-            'email' => 'required|email|min:4|max:60',
+            'email'    => 'required|email|min:4|max:60',
             'password' => 'required|min:5|max:255',
         ];
 
@@ -45,7 +45,9 @@ class UserRequest extends CustomRulesRequest
     public function validateToUpdate(): Array
     {
         return [
-            // 'name' => 'max:60',
+            'nameUser' => 'min:4|max:50',
+            'email'    => 'email|min:4|max:60',
+            'password' => 'min:5|max:255',
         ];
     }
 
@@ -55,7 +57,18 @@ class UserRequest extends CustomRulesRequest
     public function messages(): Array
     {
         return [
-            // 'id.required' => 'O id é obrigatório!',
+            'nameUser.required' => 'O nome de usuario é obrigatio!',
+            'nameUser.min'      => 'O nome de usuario deve ter no minimo 4 caracteres!',
+            'nameUser.required' => 'O nome de usuario pode ter no maximo 50 caracteres!',
+
+            'email.required' => 'o e-mail é obrigatorio',
+            'email.email'    => 'o e-mail deve ser valido',
+            'email.min'      => 'O email de usuario deve ter no minimo 4 caracteres!',
+            'email.required' => 'O email de usuario pode ter no maximo 60 caracteres!',
+
+            'password.required' => 'A senha de usuario é obrigatio!',
+            'password.min'      => 'A senha de usuario deve ter no minimo 5 caracteres!',
+            'password.required' => 'A senha de usuario pode ter no maximo 255 caracteres!',
         ];
     }
 }
