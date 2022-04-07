@@ -19,20 +19,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('auth/login', [AuthController::class, 'login'])->name('auth.login');
-
-// Route::group([
-
-//     'middleware' => 'api',
-//     'prefix' => 'auth'
-
-// ], function ($router) {
-
-//     Route::post('login', 'AuthController@login');
-//     Route::post('logout', 'AuthController@logout');
-//     Route::post('refresh', 'AuthController@refresh');
-//     Route::post('me', 'AuthController@me');
-
-// });
+Route::post('auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
+Route::post('auth/refresh', [AuthController::class, 'refresh'])->name('auth.refresh');
+Route::post('auth/me', [AuthController::class, 'me'])->name('auth.me');
 
 Route::apiResource('user', UserController::class, ['except' => ['destroy']]);
 
