@@ -1,13 +1,13 @@
--Clone o repositorio.
--Crie o banco de dados.
--Intale as dependencias.
--Crie o banco de dados.
--Configure o .env conforme o .env.example, existe uma chave secret do jwt para facilitar a configuração, e não precisar usar, pode utilizar a que ja esta no example.
--Execute as migration.
--Na pasta documentação swagger existe uma pequena documentação de somente a categoria.
--Existe um sistema de autenticação, criar usuario primeiro, todas as funcionalidades precisam do token gerado no login.
--Na pasta requests existem as validações dos campos nescessarios para as rotas. pode ser utilizado para se guiar em montar as requests.
--Na pasta documentação swagger tambem tem um arquivo json gerado pelo insomnia Rest que pode ser importado em um insomnia para ver as requests ja montadas.
+#Clone o repositorio.
+#Crie o banco de dados.
+#Intale as dependencias.
+#Crie o banco de dados.
+#Configure o .env conforme o .env.example, existe uma chave secret do jwt para facilitar a configuração, e não precisar usar, pode utilizar a que ja esta no example.
+#Execute as migration.
+#Na pasta documentação swagger existe uma pequena documentação de somente a categoria.
+#Existe um sistema de autenticação, criar usuario primeiro, todas as funcionalidades precisam do token gerado no login.
+#Na pasta requests existem as validações dos campos nescessarios para as rotas. pode ser utilizado para se guiar em montar as requests.
+#Na pasta documentação swagger tambem tem um arquivo json gerado pelo insomnia Rest que pode ser importado em um insomnia para ver as requests ja montadas.
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
