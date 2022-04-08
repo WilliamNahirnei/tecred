@@ -4,7 +4,7 @@ namespace App\BO\Traits;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\UserHasSystemRequest;
-
+use App\Models\CustomModel;
 use App\Resources\Traits\PrepareTrait;
 
 /**
@@ -30,7 +30,7 @@ trait ProductTrait
         $returnArray = [
             'nameProduct'     => $requestObject->nameProduct ?? $classObject->nameProduct,
             'quantityProduct' => $requestObject->quantityProduct ?? $classObject->quantityProduct,
-            'statusProduct'   => 1,
+            'statusProduct'   => CustomModel::RECORD_STATUS_ACTIVE,
             'idCategory'      => $requestObject->idCategory ?? $classObject->idCategory
         ];
 
@@ -63,7 +63,7 @@ trait ProductTrait
      */
     public function prepareDisable()
     {
-        return ['statusProduct' => 0];
+        return ['statusProduct' => CustomModel::RECORD_STATUS_INACTIVE];
     }
 
     /**
@@ -71,6 +71,6 @@ trait ProductTrait
      */
     public function prepareEnable()
     {
-        return ['statusProduct' => 1];
+        return ['statusProduct' => CustomModel::RECORD_STATUS_ACTIVE];
     }
 }

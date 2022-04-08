@@ -3,7 +3,7 @@
 namespace App\BO\Traits;
 
 use App\Http\Requests\UserHasSystemRequest;
-
+use App\Models\CustomModel;
 use App\Resources\Traits\PrepareTrait;
 
 /**
@@ -58,7 +58,7 @@ trait CategoryTrait
      */
     public function prepareDisable()
     {
-        return ['statusCategory' => 0];
+        return ['statusCategory' => CustomModel::RECORD_STATUS_INACTIVE];
     }
 
     /**
@@ -66,6 +66,6 @@ trait CategoryTrait
      */
     public function prepareEnable()
     {
-        return ['statusCategory' => 1];
+        return ['statusCategory' => CustomModel::RECORD_STATUS_ACTIVE];
     }
 }
